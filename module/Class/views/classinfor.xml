@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+     
+        <record id="class_information_list_view" model="ir.ui.view">
+            <field name="name">class_info_list</field>
+            <field name="model">class.information</field>
+            <field name="arch" type="xml">
+                <tree string="Danh sách lớp">
+                    <field name="name" optional="show"/>    
+                    <field name="grade" optional="show"/>    
+                    <field name="mainTeacher" optional="show"/>
+                    <field name="school_id" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="class_information_form_view" model="ir.ui.view">
+            <field name="name">class_info_form</field>
+            <field name="model">class.information</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="grade"/>
+                            <field name="mainTeacher"/>
+                            <field name="school_id" />
+                        </group>
+                        <group>
+                            <field name="student_list" optional="show" editable="bottom">
+                                <!-- <tree>
+                                    <field name="name" optional="show"/>    
+                                    <field name="mainTeacher" optional="show"/>
+                                    <field name="grade" optional="show"/>    
+
+                                </tree> -->
+                            </field>
+                        </group>
+                    </sheet>
+                </form>    
+            </field>   
+        </record>
+
+        Actions
+        <record id="action_class_information" model="ir.actions.act_window">
+            <field name="name">class Information Action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">class.information</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new class for model
+                </p>
+            </field>
+        </record>
+
+
+      <!-- Top menu item -->
+
+    <menuitem name="module" id="module.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Class" id="module.class" parent="module.menu_root"/>
+
+<!-- actions -->
+
+    <menuitem name="Class Information" id="module.class_menu" parent="module.class"
+              action="module.action_class_information"/>      
+      
+      
+    </data>
+</odoo>
