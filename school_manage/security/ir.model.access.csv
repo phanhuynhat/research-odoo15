@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_school_manage_school_manage,school_manage.school_manage,model_school_manage_school_manage,base.group_user,1,1,1,1
