@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <record id="subject_information_list_view" model="ir.ui.view">
+            <field name="name">subject_info_list</field>
+            <field name="model">subject.information</field>
+            <field name="arch" type="xml">
+                <tree string="Danh sách môn học">
+                    <field name="name" optional="show"/>    
+                    <field name="teachers" optional="show"/>   
+                </tree>
+            </field>
+        </record>
+
+        <record id="subject_information_form_view" model="ir.ui.view">
+            <field name="name">subject_info_form</field>
+            <field name="model">subject.information</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                                <field name="name" />
+                                <field name="teachers" />
+                        </group>
+                        
+                    </sheet>
+                </form>    
+            </field>   
+        </record>
+
+
+        <!-- Actions -->
+        <record id="action_subject_information" model="ir.actions.act_window">
+            <field name="name">Subject Information Action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">subject.information</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new subject for model
+                </p>
+            </field>
+        </record>
+
+        
+
+      <!-- Top menu item -->
+
+    <!-- <menuitem name="module" id="module.menu_root"/> -->
+
+    <!-- menu categories -->
+
+    <!-- <menuitem name="Subject" id="module.subject" parent="module.menu_root"/> -->
+
+    <!-- actions -->
+
+    <menuitem name="Môn học" id="module.subject_menu" parent="module.student"
+              action="module.action_subject_information"/>  
+        
+    </data>
+
+</odoo>
