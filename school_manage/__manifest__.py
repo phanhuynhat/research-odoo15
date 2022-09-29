@@ -25,14 +25,19 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        'security/ir.model.access.csv',
+        'views/school_views.xml',
+        'views/class_views.xml',
+        'views/student_views.xml',
+        # 'views/views.xml',
+        # 'views/templates.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
     
-    'application': True,
+    'application': True,    
+    'installable': True,
 }
+

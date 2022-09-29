@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <record id="class_manage_list_view" model="ir.ui.view">
+            <field name="name">class_list_view</field>
+            <field name="model">class.manage</field>
+            <field name="arch" type="xml">
+                <tree string="Danh sách lớp">
+                    <field name="name" optional="show"/>    
+                    <field name="grade" optional="show"/>    
+                    <field name="mainTeacher" optional="show"/>
+                    <field name="school_id" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="class_manage_form_view" model="ir.ui.view">
+            <field name="name">class_info_form</field>
+            <field name="model">class.manage</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="grade" />
+                            <field name="mainTeacher"/>
+                            <field name="school_id"/>
+                        </group>
+                        <group>
+                            <field name="student_list" optional="show" editable="bottom">
+                          
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Actions -->
+        <record id="action_class_manage" model="ir.actions.act_window">
+            <field name="name">Class Manage Action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">class.manage</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new class for model
+                </p>
+            </field>
+        </record>
+        
+        <!-- Top menu item -->
+
+        <!-- <menuitem name="school_manage" id="school_manage.menu_root"/> -->
+
+        <!-- menu categories -->
+
+        <menuitem name="Class" id="school_manage.class" parent="school_manage.menu_root"/>
+
+        <menuitem name="Class Manage" id="school_manage.class_menu" parent="school_manage.class"
+                action="school_manage.action_class_manage"/>   
+
+    </data>
+</odoo>
