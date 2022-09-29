@@ -1,0 +1,72 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="school_manage_list_view">
+            <field name="name">School_list_views</field>
+            <field name="model">school.manage</field>
+            <field name="arch" type="xml">
+                <tree string="Thông tin trường">
+                    <field name="name" optional="show"/>
+                    <field name="phoneNU"/>
+                    <field name="email"/>
+                    <field name="address"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="school_manage_form_view" model="ir.ui.view">
+            <field name="name">school_info_form</field>
+            <field name="model">school.manage</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="image" widget="image" class="oe_avatar"/>
+                            <field name="phoneNU" />
+                            <field name="address"/>
+                            <field name="email" />
+                            <field name="establishDay" />
+                        </group>
+                        <group>
+                            <field name="document" filename="document_name" />
+                            <field name="document_name"/>
+                            <!-- <field name="document_name" /> -->
+                        </group>
+                    </sheet>
+                </form>    
+            </field>   
+        </record>
+
+         <!-- Actions -->
+        <record id="action_school_manage" model="ir.actions.act_window">
+            <field name="name">School Manage Action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">school.manage</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new school for model
+                </p>
+            </field>
+        </record>
+
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="school_manage" id="school_manage.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="School" id="school_manage.menu_1" parent="school_manage.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="School Information" id="school_manage.menu_1_list" parent="school_manage.menu_1"
+              action="school_manage.action_school_manage" sequence="10" groups="base.group_user"/>
+
+    </data>
+
+</odoo>

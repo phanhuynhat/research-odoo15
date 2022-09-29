@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <record id="student_manage_list_view" model="ir.ui.view">
+            <field name="name">student_list_view</field>
+            <field name="model">student.manage</field>
+            <field name="arch" type="xml">
+                <tree string="Danh sách học sinh">
+                    <field name="name" optional="show"/>    
+                    <field name="day_of_birth" optional="show"/>    
+                    <field name="class_id" optional="show"/>
+                    <field name="phone" optional="show"/>
+                    <field name="address" optional="show"/>
+                    <!-- <field name="sex" optional="show" /> -->
+                    <!-- <field name="tuition" optional="show" sum="Total"/> -->
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="student_manage_form_view" model="ir.ui.view">
+            <field name="name">student_info_form</field>
+            <field name="model">student.manage</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="grade"/>
+                            <field name="day_of_birth"/>
+                            <field name="address"/>
+                            <field name="phone"/>
+                        </group>
+                        <group>
+                            <field name="class_id" />
+                            <field name="semester"/>
+                            <field name="tuition"/>
+                        </group>
+                        
+                        
+                    </sheet>
+                </form>    
+            </field>   
+        </record>
+
+
+
+
+
+
+
+        <record id="action_student_manage" model="ir.actions.act_window">
+            <field name="name">Student Manage Action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">student.manage</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new student for model
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem name="Student" id="school_manage.student" parent="school_manage.menu_root"/>
+
+        <menuitem name="Student Manage" id="school_manage.student_menu" parent="school_manage.student"
+                action="school_manage.action_student_manage"/>  
+
+
+
+
+    </data>
+</odoo>
