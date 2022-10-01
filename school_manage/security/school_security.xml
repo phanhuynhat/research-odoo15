@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+        <record model="ir.module.category" id="school_manage_access">
+            <field name="name">School Manage</field>
+        </record>
+
+        <record id="school_manage_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="school_manage.school_manage_access"/>
+        </record>
+        
+        <record id="school_manage_teacher" model="res.groups">
+            <field name="name">Teacher</field>
+            <field name="category_id" ref="school_manage.school_manage_access"/>
+        </record>
+
+        <record id="school_manage_student" model="res.groups">
+            <field name="name">Student</field>
+            <field name="category_id" ref="school_manage.school_manage_access"/>
+        </record>
+
+
+    
+    </data>
+</odoo>
