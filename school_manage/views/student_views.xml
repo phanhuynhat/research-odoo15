@@ -29,6 +29,7 @@
                             <field name="name" />
                             <field name="grade"/>
                             <field name="day_of_birth"/>
+                            <field name="sex"/>
                             <field name="address"/>
                             <field name="phone"/>
                         </group>
@@ -36,6 +37,7 @@
                             <field name="class_id" />
                             <field name="semester"/>
                             <field name="tuition"/>
+                            <field name="tuition_sum"/>
                         </group>
                         
                         

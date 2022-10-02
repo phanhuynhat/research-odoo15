@@ -22,4 +22,17 @@
 
     
     </data>
+
+    <data>
+       <record id="school_student_rule" model="ir.rule">
+            <field name="name">Student Records</field>
+            <field name="model_id" ref="model_student_manage"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('school_manage.school_manage_student'))]" />
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+       </record>
+    </data>
 </odoo>
